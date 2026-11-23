@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
+    'accounts',
     'core',
     'api',
 ]
@@ -56,6 +57,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_LOGIN_METHODS = {'email'}
+ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
+
+AUTH_USER_MODEL = "accounts.CustomUser"
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 TEMPLATES = [
     {
