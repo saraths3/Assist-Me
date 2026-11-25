@@ -1,19 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration: Assist-Me</title>
+    <link rel="stylesheet" href="{% static 'css/account/register.css' %}">
 </head>
 <body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {% for f in form %}
-            {{ f.name }}
-            {{f}}
-            <br>
-        {% endfor %}
-        <button type="submit">Register User</button>
-    </form>
+    <main class="auth-container">
+        <header class="auth-header">
+            <h1>ASSIST-ME</h1>
+            <p>// CREATE NEW ACCOUNT</p>
+        </header>
+
+        <!-- Main Registration Form -->
+        <form action="" method="post" class="register-form">
+            {% csrf_token %}
+            
+            {% for f in form %}
+                <div class="form-group">
+                    {{ f.label_tag }}
+                    {{ f }}
+                    {% if f.errors %}
+                        <span class="error-text">{{ f.errors|striptags }}</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn-primary">Register User</button>
+        </form>
+
+        <div class="divider">
+            <span>OR CONTINUE WITH</span>
+        </div>
+
+        <!-- OAuth Forms (Moved outside main form to fix invalid HTML nesting) -->
+        <div class="oauth-group">
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-oauth btn-google">Google</button>
+            </form>
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-oauth btn-github">GitHub</button>
+            </form>
+        </div>
+    </main>
 </body>
 </html>

@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login: Assist-Me</title>
+    <link rel="stylesheet" href="{% static 'css/account/login.css' %}">
+</head>
+<body>
+    <main class="auth-container">
+        <header class="auth-header">
+            <h1>ASSIST-ME</h1>
+            <p>// USER AUTHENTICATION</p>
+        </header>
+
+        <!-- Main Login Form -->
+        <form action="" method="post" class="login-form">
+            {% csrf_token %}
+            
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <span class="error-text">{{ field.errors|striptags }}</span>
+                    {% endif %}
+                </div>
+            {% endfor %}
+
+            <button type="submit" class="btn-primary">Login</button>
+        </form>
+
+        <div class="divider">
+            <span>OR CONTINUE WITH</span>
+        </div>
+
+        <!-- OAuth / External Login Buttons -->
+        <div class="oauth-group">
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-oauth btn-google">Google</button>
+            </form>
+            <form action="" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-oauth btn-github">GitHub</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

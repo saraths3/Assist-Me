@@ -1,0 +1,183 @@
+/* Gruvbox Dark Hard Palette */
+:root {
+    --bg0-hard: #1d2021;
+    --bg0:      #282828;
+    --bg1:      #3c3836;
+    --bg2:      #504945;
+    --fg0:      #fbf1c7;
+    --fg1:      #ebdbb2;
+    --fg4:      #a89984;
+    
+    --red:      #fb4934;
+    --green:    #b8bb26;
+    --yellow:   #fabd2f;
+    --blue:     #83a598;
+    --purple:   #d3869b;
+    --aqua:     #8ec07c;
+    --orange:   #fe8019;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg0-hard);
+    color: var(--fg1);
+    font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1.5rem;
+}
+
+/* Main Card */
+.auth-container {
+    background-color: var(--bg0);
+    border: 2px solid var(--bg2);
+    box-shadow: 8px 8px 0px var(--bg1);
+    width: 100%;
+    max-width: 420px;
+    padding: 2rem;
+}
+
+/* Header */
+.auth-header {
+    border-bottom: 2px solid var(--bg1);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.auth-header h1 {
+    color: var(--yellow);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.auth-header p {
+    color: var(--fg4);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Django Form Fields */
+.form-group {
+    margin-bottom: 1.1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--aqua);
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+}
+
+.form-group input {
+    background-color: var(--bg0-hard);
+    border: 1px solid var(--bg2);
+    color: var(--fg0);
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.65rem 0.75rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--yellow);
+    box-shadow: 0 0 0 1px var(--yellow);
+}
+
+.error-text {
+    color: var(--red);
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
+/* Primary Register Button */
+.btn-primary {
+    width: 100%;
+    background-color: var(--green);
+    color: var(--bg0-hard);
+    border: none;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: transform 0.1s ease, background-color 0.15s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--yellow);
+}
+
+.btn-primary:active {
+    transform: translate(2px, 2px);
+}
+
+/* Divider */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: var(--fg4);
+    font-size: 0.75rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px dashed var(--bg2);
+}
+
+.divider span {
+    padding: 0 0.75rem;
+}
+
+/* OAuth Buttons */
+.oauth-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.oauth-group form {
+    width: 100%;
+}
+
+.btn-oauth {
+    width: 100%;
+    background-color: var(--bg1);
+    color: var(--fg1);
+    border: 1px solid var(--bg2);
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: 0.65rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-google:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+    background-color: var(--bg0-hard);
+}
+
+.btn-github:hover {
+    border-color: var(--purple);
+    color: var(--purple);
+    background-color: var(--bg0-hard);
+}
