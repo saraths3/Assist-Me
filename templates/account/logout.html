@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout: Assist-Me</title>
+    <link rel="stylesheet" href="{% static 'css/account/logout.css' %}">
+</head>
+<body>
+    <main class="auth-container">
+        <header class="auth-header">
+            <h1>ASSIST-ME</h1>
+            <p>// TERMINATE SESSION</p>
+        </header>
+
+        <div class="logout-body">
+            <p class="logout-prompt">Are you sure you want to log out of your account?</p>
+            
+            <form action="" method="post" class="logout-form">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="logout_">
+                <button type="submit" class="btn-primary">Confirm Logout</button>
+            </form>
+
+            <div class="logout-footer">
+                <a href="{% url 'home' %}" class="btn-secondary">Cancel / Return</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
